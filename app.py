@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import google.generativeai as genai
 import sqlite3
-
+import os
 app = Flask(__name__)
 
 # Set your Gemini API key
