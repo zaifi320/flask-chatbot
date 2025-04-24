@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import google.generativeai as genai
 import sqlite3
-import os
+
 app = Flask(__name__)
 
 # Set your Gemini API key
@@ -71,7 +71,7 @@ def chatbot(prompt):
             return response
 
         # If it's a general query — pass to Gemini AI
-       system_prompt = (
+        system_prompt = (
     "You are a specialized property assistant for Pakistan's real estate market. "
     "Follow these rules strictly:\n\n"
     
@@ -130,5 +130,4 @@ def chat():
         return jsonify({"error": f"An error occurred: {e}"}), 500
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    app.run(debug=True)
